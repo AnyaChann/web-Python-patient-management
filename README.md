@@ -92,3 +92,7 @@ The ID sequence is automatically reset when the table is empty.
 ## License
 
 N/A
+
+## Author
+
+To Xuan Bach (Bach CT)
