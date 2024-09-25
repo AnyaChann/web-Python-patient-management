@@ -22,7 +22,7 @@ This is a simple Patient Management System built using Flask and SQLite. The sys
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/patient-management-system.git
+    git clone https://github.com/AnyaChann/web-Python-patient-management.git
     cd patient-management-system
     ```
 
@@ -30,7 +30,7 @@ This is a simple Patient Management System built using Flask and SQLite. The sys
     ```sh
     python -m venv venv
     # On Windows
-    venv\Scripts\activate
+    .venv\Scripts\activate
     # On macOS/Linux
     source venv/bin/activate
     ```
