@@ -11,6 +11,10 @@ th {
     padding-left: 25px; /* Add padding to make space for the icon */
 }
 
+th:hover {
+    background-color: #ebebeb;
+}
+
 th i {
     visibility: hidden;
     position: absolute;
