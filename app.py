@@ -52,7 +52,6 @@ def insert_example_data():
     conn.close()
 
 create_table()
-insert_example_data()
 
 @app.route('/')
 def index():
@@ -119,7 +118,36 @@ def delete(id):
     cursor.execute('DELETE FROM patients WHERE id = ?', (id,))
     conn.commit()
     conn.close()
+    reset_id_sequence_if_empty()
     return redirect(url_for('index'))
+
+@app.route('/delete_selected', methods=['POST'])
+def delete_selected():
+    patient_ids = request.form.get('patient_ids')
+    if patient_ids:
+        ids = patient_ids.split(',')
+        conn = connect_db()
+        cursor = conn.cursor()
+        cursor.executemany('DELETE FROM patients WHERE id = ?', [(id,) for id in ids])
+        conn.commit()
+        conn.close()
+        reset_id_sequence_if_empty()
+    return redirect(url_for('index'))
+
+@app.route('/add_example_data', methods=['POST'])
+def add_example_data():
+    insert_example_data()
+    return redirect(url_for('index'))
+
+def reset_id_sequence_if_empty():
+    conn = connect_db()
+    cursor = conn.cursor()
+    cursor.execute('SELECT COUNT(*) FROM patients')
+    count = cursor.fetchone()[0]
+    if count == 0:
+        cursor.execute('DELETE FROM sqlite_sequence WHERE name="patients"')
+    conn.commit()
+    conn.close()
 
 if __name__ == '__main__':
     app.run(debug=True)

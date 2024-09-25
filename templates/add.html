@@ -10,40 +10,52 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Add New Patient</h1>
-        <form action="{{ url_for('add') }}" method="post">
-            <div class="form-group">
-                <label for="ten">Name:</label>
-                <input type="text" class="form-control" id="ten" name="ten" required minlength="2" maxlength="32">
+        <form action="{{ url_for('add') }}" method="post" class="mt-4">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="ten">Name:</label>
+                    <input type="text" class="form-control" id="ten" name="ten" required minlength="2" maxlength="32">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="can_nang">Weight:</label>
+                    <input type="number" class="form-control" id="can_nang" name="can_nang" required min="30" max="90">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="can_nang">Weight:</label>
-                <input type="number" class="form-control" id="can_nang" name="can_nang" required min="30" max="90">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="chieu_cao">Height:</label>
+                    <input type="number" step="0.01" class="form-control" id="chieu_cao" name="chieu_cao" required min="1.5" max="1.9">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="nhom_mau">Blood Type:</label>
+                    <select class="form-control" id="nhom_mau" name="nhom_mau" required>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="O">O</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="chieu_cao">Height:</label>
-                <input type="number" step="0.01" class="form-control" id="chieu_cao" name="chieu_cao" required min="1.5" max="1.9">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="gioi">Gender:</label>
+                    <select class="form-control" id="gioi" name="gioi" required>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ngay_nhap_vien">Admission Date:</label>
+                    <input type="date" class="form-control" id="ngay_nhap_vien" name="ngay_nhap_vien" required>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="nhom_mau">Blood Type:</label>
-                <select class="form-control" id="nhom_mau" name="nhom_mau" required>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="O">O</option>
-                </select>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary btn-block">Add Patient</button>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-secondary btn-block" onclick="window.history.back()">Back</button>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="gioi">Gender:</label>
-                <select class="form-control" id="gioi" name="gioi" required>
-                    <option value="1">Male</option>
-                    <option value="0">Female</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="ngay_nhap_vien">Admission Date:</label>
-                <input type="date" class="form-control" id="ngay_nhap_vien" name="ngay_nhap_vien" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Add Patient</button>
-            <button type="button" class="btn btn-secondary" onclick="window.history.back()">Back</button>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

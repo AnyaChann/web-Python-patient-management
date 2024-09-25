@@ -10,40 +10,52 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Edit Patient</h1>
-        <form action="{{ url_for('edit', id=patient[0]) }}" method="post">
-            <div class="form-group">
-                <label for="ten">Name:</label>
-                <input type="text" class="form-control" id="ten" name="ten" value="{{ patient[1] }}" required minlength="2" maxlength="32">
+        <form action="{{ url_for('edit', id=patient[0]) }}" method="post" class="mt-4">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="ten">Name:</label>
+                    <input type="text" class="form-control" id="ten" name="ten" value="{{ patient[1] }}" required minlength="2" maxlength="32">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="can_nang">Weight:</label>
+                    <input type="number" class="form-control" id="can_nang" name="can_nang" value="{{ patient[2] }}" required min="30" max="90">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="can_nang">Weight:</label>
-                <input type="number" class="form-control" id="can_nang" name="can_nang" value="{{ patient[2] }}" required min="30" max="90">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="chieu_cao">Height:</label>
+                    <input type="number" step="0.01" class="form-control" id="chieu_cao" name="chieu_cao" value="{{ patient[3] }}" required min="1.5" max="1.9">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="nhom_mau">Blood Type:</label>
+                    <select class="form-control" id="nhom_mau" name="nhom_mau" required>
+                        <option value="A" {% if patient[4] == 'A' %}selected{% endif %}>A</option>
+                        <option value="B" {% if patient[4] == 'B' %}selected{% endif %}>B</option>
+                        <option value="O" {% if patient[4] == 'O' %}selected{% endif %}>O</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="chieu_cao">Height:</label>
-                <input type="number" step="0.01" class="form-control" id="chieu_cao" name="chieu_cao" value="{{ patient[3] }}" required min="1.5" max="1.9">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="gioi">Gender:</label>
+                    <select class="form-control" id="gioi" name="gioi" required>
+                        <option value="1" {% if patient[5] %}selected{% endif %}>Male</option>
+                        <option value="0" {% if not patient[5] %}selected{% endif %}>Female</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ngay_nhap_vien">Admission Date:</label>
+                    <input type="date" class="form-control" id="ngay_nhap_vien" name="ngay_nhap_vien" value="{{ patient[6] }}" required>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="nhom_mau">Blood Type:</label>
-                <select class="form-control" id="nhom_mau" name="nhom_mau" required>
-                    <option value="A" {% if patient[4] == 'A' %}selected{% endif %}>A</option>
-                    <option value="B" {% if patient[4] == 'B' %}selected{% endif %}>B</option>
-                    <option value="O" {% if patient[4] == 'O' %}selected{% endif %}>O</option>
-                </select>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary btn-block">Update Patient</button>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-secondary btn-block" onclick="window.history.back()">Back</button>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="gioi">Gender:</label>
-                <select class="form-control" id="gioi" name="gioi" required>
-                    <option value="1" {% if patient[5] %}selected{% endif %}>Male</option>
-                    <option value="0" {% if not patient[5] %}selected{% endif %}>Female</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="ngay_nhap_vien">Admission Date:</label>
-                <input type="date" class="form-control" id="ngay_nhap_vien" name="ngay_nhap_vien" value="{{ patient[6] }}" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Update Patient</button>
-            <button type="button" class="btn btn-secondary" onclick="window.history.back()">Back</button>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
