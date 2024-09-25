@@ -31,7 +31,7 @@ create_table()
 def index():
     conn = connect_db()
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM patients')
+    cursor.execute('SELECT * FROM patients ORDER BY id DESC')
     patients = cursor.fetchall()
     conn.close()
     return render_template('index.html', patients=patients)
@@ -96,4 +96,3 @@ def delete(id):
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
