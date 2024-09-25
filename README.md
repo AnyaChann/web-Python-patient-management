@@ -44,9 +44,9 @@ This is a simple Patient Management System built using Flask and SQLite. The sys
 
 1. Ensure you are in the project directory and the virtual environment is activated.
 
-2. Run the Flask application:
+2. Run the application:
     ```sh
-    flask run
+    python app.py
     ```
 
 3. Open your web browser and go to `http://127.0.0.1:5000` to access the Patient Management System.
