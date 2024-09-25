@@ -91,4 +91,4 @@ The ID sequence is automatically reset when the table is empty.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+N/A
