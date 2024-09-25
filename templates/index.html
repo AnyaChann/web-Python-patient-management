@@ -6,6 +6,7 @@
     <title>Patient Management</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -14,17 +15,17 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Weight</th>
-                    <th>Height</th>
-                    <th>Blood Type</th>
-                    <th>Gender</th>
-                    <th>Admission Date</th>
-                    <th>Actions</th>
+                    <th class="no-select">ID</th>
+                    <th class="no-select" onclick="sortTable(1)">Name <i class="fas"></i></th>
+                    <th class="no-select" onclick="sortTable(2)">Weight <i class="fas"></i></th>
+                    <th class="no-select" onclick="sortTable(3)">Height <i class="fas"></i></th>
+                    <th class="no-select" onclick="sortTable(4)">Blood Type <i class="fas"></i></th>
+                    <th class="no-select" onclick="sortTable(5)">Gender <i class="fas"></i></th>
+                    <th class="no-select" onclick="sortTable(6)">Admission Date <i class="fas"></i></th>
+                    <th class="no-select">Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="patientTable">
                 {% for patient in patients %}
                 <tr>
                     <td>{{ patient[0] }}</td>
@@ -48,5 +49,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

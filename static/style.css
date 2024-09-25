@@ -19,3 +19,26 @@ form {
 table {
     margin-top: 20px;
 }
+
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera and Edge */
+}
+
+th {
+    position: relative;
+    cursor: pointer;
+}
+
+th i {
+    visibility: hidden;
+    position: absolute;
+    right: 10px;
+}
+
+th:hover i,
+th.sorted i {
+    visibility: visible;
+}
